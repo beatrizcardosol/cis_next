@@ -10,6 +10,7 @@ import { InputOTP, InputOTPGroup, InputOTPSlot } from "./ui/input-otp";
 import { Shield, Lock, Eye, EyeOff } from "lucide-react";
 import logoImage from "@/public/logo.png";
 
+// ✅ Interface das props do componente
 interface LoginPageProps {
   onLogin: () => void;
 }
@@ -22,6 +23,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
   const [otpValue, setOtpValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  // ✅ Lógica de login simulada
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!show2FA && email && password) {
@@ -41,12 +43,12 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 relative">
-      {/* Logo */}
+      {/* ✅ Logo */}
       <div className="absolute top-6 left-6 z-10">
         <img src={logoImage.src} alt="BlackBelt IT Solutions" className="h-8 w-auto" />
       </div>
 
-      {/* Conteúdo Central */}
+      {/* ✅ Conteúdo Central */}
       <div className="flex items-center justify-center min-h-screen p-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
@@ -63,8 +65,10 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                 {show2FA ? "Autenticação 2FA" : "Login Seguro"}
               </CardTitle>
             </CardHeader>
+
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Login Normal */}
                 {!show2FA ? (
                   <>
                     <div className="space-y-2">
@@ -97,7 +101,11 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                           onClick={() => setShowPassword(!showPassword)}
                           className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
                         >
-                          {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                          {showPassword ? (
+                            <EyeOff className="w-4 h-4" />
+                          ) : (
+                            <Eye className="w-4 h-4" />
+                          )}
                         </button>
                       </div>
                     </div>
@@ -112,6 +120,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                     </div>
                   </>
                 ) : (
+                  // ✅ Autenticação 2FA
                   <div className="space-y-4">
                     <div className="text-center">
                       <div className="bg-red-50 p-3 rounded-lg mb-4">
@@ -149,6 +158,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
 
                 <Separator className="my-4" />
 
+                {/* ✅ Botão principal */}
                 <Button
                   type="submit"
                   className="w-full bg-red-600 hover:bg-red-700 text-white"
@@ -170,6 +180,7 @@ export function LoginPage({ onLogin }: LoginPageProps) {
                   )}
                 </Button>
 
+                {/* ✅ Botão de voltar no 2FA */}
                 {show2FA && (
                   <Button
                     type="button"
