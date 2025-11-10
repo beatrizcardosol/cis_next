@@ -21,17 +21,16 @@ Antes de rodar o projeto, garanta que você tenha instalado na sua máquina:
 
 ## 📦 Instalação
 
-1. **Baixe o projeto** ou clone o repositório:
-   ```bash
-   git clone <URL_DO_REPOSITORIO>
-Caso tenha recebido o arquivo .zip, extraia em uma pasta local:
-
+### 1. Baixe o projeto ou clone o repositório:
+```bash
+git clone <URL_DO_REPOSITORIO>
+cd CONTROLS
+2. Caso tenha recebido o arquivo .zip, extraia em uma pasta local:
 bash
 Copiar código
 unzip CONTROLS.zip
 cd CONTROLS
-Instale as dependências:
-
+3. Instale as dependências:
 bash
 Copiar código
 pnpm install
@@ -43,53 +42,63 @@ Copiar código
 pnpm dev
 O servidor de desenvolvimento será iniciado e o projeto estará disponível em:
 
-🔗 http://localhost:3000
+👉 http://localhost:3000
 
 🧩 Estrutura principal
-ruby
+bash
 Copiar código
 CONTROLS/
 ├── app/
 │   ├── login/
-│   │   └── page.tsx       # Página de login
+│   │   └── page.tsx           # Página de login
 │   ├── dashboard/
-│   │   └── page.tsx       # Página principal após login
+│   │   └── page.tsx           # Página principal após login
 │   ├── questionnaire/
-│   │   └── page.tsx       # Questionário CIS
+│   │   └── page.tsx           # Questionário CIS
 │   └── report/
-│       └── page.tsx       # Relatório final
+│       └── page.tsx           # Relatório final
 │
 ├── components/
-│   ├── LoginPage.tsx      # Componente de login
-│   ├── Dashboard.tsx      # Painel principal
-│   ├── Questionnaire.tsx  # Questionário de maturidade
-│   ├── ReportPage.tsx     # Tela de relatório
-│   └── ui/                # Componentes visuais (botões, inputs, etc.)
+│   ├── LoginPage.tsx          # Componente de login
+│   ├── Dashboard.tsx          # Painel principal
+│   ├── Questionnaire.tsx      # Questionário de maturidade
+│   ├── ReportPage.tsx         # Tela de relatório
+│   └── ui/                    # Componentes visuais (botões, inputs, etc.)
 │
 ├── public/
-│   └── logo.png           # Logo da aplicação
+│   └── logo.png               # Logo da aplicação
 │
 ├── package.json
 ├── next.config.mjs
 └── README.md
 ⚙️ Erros comuns e soluções
 ❌ Erro: next: not found
-Ocorre quando o Next.js ainda não foi instalado.
+Ocorre quando o Next.js ainda não foi instalado corretamente.
+
+Solução:
 
 bash
 Copiar código
 pnpm install
 ❌ Erro: Module not found: Can't resolve '@radix-ui/...
-Instale manualmente os pacotes do Radix UI:
+Faltam dependências do Radix UI usadas pelos componentes da interface.
+
+Solução:
 
 bash
 Copiar código
 pnpm add @radix-ui/react-accordion @radix-ui/react-radio-group
 ❌ Erro: Processing image failed (Invalid PNG signature)
-Substitua o arquivo public/logo.png por um PNG válido (salve novamente a logo no Photoshop/GIMP e coloque de volta).
+A imagem logo.png está corrompida.
+
+Solução:
+Substitua o arquivo public/logo.png por um PNG válido.
+Você pode abrir e salvar novamente a imagem no Photoshop, GIMP, ou outro editor.
 
 ❌ Erro: onLogin is not a function
-Certifique-se de que o componente LoginPage está sendo usado da seguinte forma:
+O componente LoginPage precisa receber a função onLogin como propriedade.
+
+Exemplo correto:
 
 tsx
 Copiar código
@@ -113,4 +122,6 @@ ShadCN/UI
 Lucide Icons
 
 Radix UI
+
+
 
